@@ -1,35 +1,40 @@
-import streamlit as st
-import math as mt 
+from streamlit import header, write, text_input, button, warning, success, error
+from math import pow, sqrt, z
 
-st.header("Calculadora de Bhaskara")
-st.write("Calculadora de Raízes \n" \
+#Função Python
+def calculo(Delta):
+   valor = (sqrt(Delta)) / (2 * a)
+   return valor
+
+#Cabeçalho
+header("Calculadora de Bhaskara")
+write("Calculadora de Raízes \n" \
 " de uma equação de 2º Grau")
-st.write("ax² + bx + c = 0")
+write("ax² + bx + c = 0")
 
 #Entrada e Dados
-a = st.text_input("Digite o valor de a:")
-b = st.text_input("Digite o valor de b:")
-c = st.text_input("Digite o valor de c:")
+a = text_input("Digite o valor de a:")
+b = text_input("Digite o valor de b:")
+c = text_input("Digite o valor de c:")
 
 #Processamento de Dados
-if st.button("Calcular Raízes"):
+if button("Calcular Raízes"):
     try:
       a = float(a)  #convertendo string para float
       b = float(b)  #convertendo string para float
       c = float(c)  #convertendo string para float
-      Delta = mt.pow(b,2) - 4 * a * c
+      Delta = pow(b,2) - 4 * a * c
       if Delta < 0:
-         st.warning(f"A equação não possui raízes reais:")
+         warning(f"A equação não possui raízes reais:")
       elif Delta == 0:
-         raiz = (-b + mt.sqrt(Delta)) / (2 * a)
-         st.success(f"A equação possui uma raiz real: {raiz:.2f}")
+         raiz = (-b + calculo(Delta))
+         success(f"A equação possui uma raiz real: {raiz:.2f}")
       else:
-         raiz1 = (-b + mt.sqrt(Delta)) / (2 * a)
-         raiz2 = (-b - mt.sqrt(Delta)) / (2 * a)
-         st.success(f"As raizes da equação são: \n Raiz 1:{raiz1:.2f} \n Raiz 2: e {raiz2:.2f}")
+         raiz1 = (-b + calculo(Delta))
+         raiz2 = (-b - calculo(Delta))
+         success(f"As raizes da equação são: \n Raiz 1:{raiz1:.2f} \n Raiz 2: e {raiz2:.2f}")
 
-
-
-
-    except:
-      st.error("Por favor, insira valores validos para a, b e c.")
+    except ValueError:
+      error("Por favor, insira valores validos para a, b  e c.")
+    except ZeroDivisionError:
+       error("O avlor de 'a' não pode ser zero em uma equação de 2º grau.")
