@@ -25,6 +25,7 @@ st.sidebar.markdown("Converte a temperatura entre Celsius, Fahrenheit e Kelvin")
 # kelvin_selecionado = st.sidebar.checkbox("Kelvin", key="temp_kelvin")
 
 opcao_selecionada = st.sidebar.radio(options=['Celsius', 'Kelvin', 'Fahrenheit'],key="opcao_radio",label="Selecionar")
+
 #Entrada de dados
 temp = st.number_input("Valor da temperatura",format="%.2f",step=1.0)
 
