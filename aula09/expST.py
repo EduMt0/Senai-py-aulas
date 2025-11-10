@@ -28,7 +28,7 @@ for i in range(n):
         total_sapos += quantidade 
 
 
-if total_coelhos>0:
+if total_cobaias>0:
     percentual_coelhos = (total_coelhos / total_cobaias) * 100
     percentual_ratos = (total_ratos / total_cobaias) *  100
     percentual_sapos = (total_sapos / total_cobaias) * 100
