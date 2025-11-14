@@ -15,11 +15,8 @@ trianguloy.b = int(input("Digite a medida b:"))
 trianguloy.c = int(input("Digite a medida c:"))
 
 #Processamento de dados
-p = (triangulox.a + triangulox.b + triangulox.c) / 2
-areax = (p * (p - triangulox.a) * (p - triangulox.b) * (p - triangulox.c)) ** 0.5
-p = (trianguloy.a + trianguloy.b + trianguloy.c) / 2
-areay = (p * (p - trianguloy.a) * (p - trianguloy.b) * (p - trianguloy.c)) ** 0.5
-
+areax = triangulox.area()
+areay = trianguloy.area()
 #Condicional para a verificação dos dados
 if areax > areay:
     saida = "A area do Triangulo X é maior q do Triangulo Y"
